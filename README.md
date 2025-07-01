@@ -129,19 +129,49 @@
 - **Effectiveness Testing**: Performance metrics and success indicators
 - **Pattern Validation**: Reusability and implementation testing
 
+## Reference System & Documentation
+
+The CLAUDE.md Builder now includes comprehensive reference documentation:
+
+### Modular Reference Files
+- **`claude-md-import-system.md`**: Complete guide to @import syntax and memory hierarchy
+- **`claude-md-memory-management.md`**: Advanced memory patterns and location strategies  
+- **`claude-md-complete-examples.md`**: Full working templates for immediate use
+
+### Integration Capabilities
+- **Import system support**: Templates can use @file references for modular configurations
+- **Memory hierarchy optimization**: Advanced patterns for team and personal preferences
+- **CLAUDE.md Supremacy patterns**: Techniques for maximum instruction adherence
+- **Dynamic memory management**: Temporary modification and rollback strategies
+
+### Enhanced Template Library
+- **Multi-file output systems**: JSON-based batch file generation with processing scripts
+- **Import-based modular systems**: Team collaboration and configuration separation
+- **Research system templates**: Structured methodology for information gathering
+- **Advanced command control**: Natural language to technical syntax translation
+
 ## Source Material & Research
 
 Based on comprehensive analysis of:
+- **Official Anthropic Documentation**: Best practices and optimization guidelines
 - **ClaudeLog Tutorial Series**: 12+ pages covering mechanics and optimization
-- **Real-World Examples**: Watch Control, Tool Maker, and other production CLAUDE.md files
+- **Real-World Examples**: Production CLAUDE.md files across various domains
 - **Community Patterns**: Proven techniques from Claude Code practitioners
 - **Performance Research**: Token optimization and parallel execution studies
+- **Advanced Pattern Analysis**: Import systems, memory management, and supremacy techniques
 
 ## Getting Started Right Now
 
 ### For Beginners:
 1. **Start Reading**: `claude-md-good-practices.md` (understand the why)
 2. **See Examples**: `claude-md-instruction-patterns.md` (copy-pasteable templates)
+3. **Explore References**: Browse modular reference files for specific topics
+
+### Using the Reference System:
+1. **Browse Available References**: Each reference file covers a specific advanced topic
+2. **Access via Commands**: Use "show import system documentation" or similar commands
+3. **Import into Templates**: Add `@claude-md-import-system.md` to your CLAUDE.md files
+4. **Combine Patterns**: Mix and match concepts from different reference files
 3. **Practice**: Use CLAUDE.md Builder to analyze simple examples
 4. **Build**: Create your first CLAUDE.md using template creation workflow
 

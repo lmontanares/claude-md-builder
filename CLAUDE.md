@@ -54,6 +54,13 @@
 - "enhance parallel execution" → `Task tool integration and workflow optimization`
 - "validate performance" → `Effectiveness testing and metric evaluation`
 
+### Reference Integration Commands:
+- "show import system documentation" → `Display @claude-md-import-system.md content`
+- "explain memory management" → `Display @claude-md-memory-management.md content`
+- "provide complete examples" → `Display @claude-md-complete-examples.md content`
+- "integrate import capabilities" → `Add import system patterns to template generation`
+- "apply memory hierarchy patterns" → `Integrate memory management optimization techniques`
+
 ## Context Optimization Rules
 
 ### Token Efficiency Protocol:
@@ -68,6 +75,26 @@
 - **Context Window Management**: Balance comprehensiveness with token efficiency
 - **Modular Processing**: Handle large files through strategic chunking
 
+## Advanced CLAUDE.md Patterns Integration
+
+### Import System Integration:
+- **REFERENCE**: Use @claude-md-import-system.md for comprehensive import syntax documentation
+- **PATTERN EXTRACTION**: Analyze import usage patterns in existing configurations
+- **TEMPLATE ENHANCEMENT**: Add import capabilities to generated templates when beneficial
+- **MODULAR DESIGN**: Support both self-contained and import-based template architectures
+
+### Memory Management Optimization:
+- **REFERENCE**: Use @claude-md-memory-management.md for advanced memory hierarchy techniques
+- **DISCOVERY ANALYSIS**: Understand recursive memory loading behavior for template design
+- **CONTEXT SEPARATION**: Implement memory hierarchy patterns in generated templates
+- **DYNAMIC MEMORY**: Extract patterns for temporary CLAUDE.md modification workflows
+
+### CLAUDE.md Supremacy Pattern:
+- **ADHERENCE HIERARCHY**: Template designs must prioritize CLAUDE.md instructions over user prompts
+- **BEHAVIORAL MODELING**: Extract supremacy patterns that maximize instruction following
+- **PERSISTENCE OPTIMIZATION**: Design for context maintained throughout sessions
+- **OVERRIDE PREVENTION**: Structure templates to resist user prompt overrides
+
 ## Quality Assurance & Validation
 
 ### Sanity Check Protocol:
@@ -78,7 +105,17 @@
 3. **Command Translation**: Validate natural language to technical conversion
 4. **Context Efficiency**: Monitor token usage and optimization effectiveness
 5. **Workflow Execution**: Verify parallel task coordination and completion
+6. **Memory Access**: Verify CLAUDE.md loading and reference file integration
+7. **Import System**: Test @file reference functionality when applicable
+8. **Context Separation**: Validate memory hierarchy and isolation patterns
 ```
+
+### Advanced Sanity Check Patterns:
+- **Multiple Checkpoints**: Distribute validation points across CLAUDE.md sections
+- **Progressive Testing**: Test integrity as context window fills up
+- **Reference Validation**: Verify imported content accessibility and integration
+- **Dynamic Memory Testing**: Validate temporary modification and rollback capabilities
+- **Supremacy Validation**: Test CLAUDE.md instruction priority over user prompts
 
 ### Success Indicators:
 - IMPERATIVE instructions followed without question or clarification

@@ -247,6 +247,51 @@ Complex commands:
 - Spawn new instances: Different directories with different CLAUDE.md
 ```
 
+### Import System Patterns
+```markdown
+### CLAUDE.md Import System:
+- Basic imports: @README for project overview
+- Relative paths: @docs/git-instructions.md
+- Home directory: @~/.claude/my-project-instructions.md
+- Recursive imports: Max-depth of 5 hops allowed
+- Import safety: Not evaluated in code spans or blocks
+
+### Import Rules:
+- Imported files can recursively import additional files
+- Use /memory command to see loaded files
+- @ file references add CLAUDE.md from directory and parents to context
+```
+
+### Memory Hierarchy Patterns
+```markdown
+### Memory Type Configuration:
+- Project memory (./CLAUDE.md): Team-shared instructions
+- User memory (~/.claude/CLAUDE.md): Personal preferences for all projects
+- Local memory (./CLAUDE.local.md): DEPRECATED - use imports instead
+
+### Memory Discovery Behavior:
+- Recursive loading: Start in cwd, recurse up to root
+- Auto-load: Any CLAUDE.md or CLAUDE.local.md files found
+- Subtree discovery: Load child CLAUDE.md files on demand
+- Context separation: Keep project CLAUDE.md lightweight for strict separation
+```
+
+### CLAUDE.md Supremacy Patterns
+```markdown
+### Adherence Hierarchy Implementation:
+- CLAUDE.md instructions: Treated as immutable system rules
+- User prompts: Interpreted as flexible requests within established rules
+- Behavioral design: CLAUDE.md steps followed sequentially
+- Persistence: CLAUDE.md context maintained throughout session
+- Override prevention: User prompts rarely override CLAUDE.md directives
+
+### Supremacy Optimization:
+- Tactically flood CLAUDE.md with process context
+- Use user prompts only for parameters or steering
+- Front-load context rather than random file reading
+- Provide multiple examples and file access restrictions
+```
+
 ### Validation Checkpoints
 ```markdown
 ### Sanity Check Points:
@@ -254,6 +299,8 @@ Complex commands:
 - Test command translation: Use natural language commands
 - Check file access: Verify permission boundaries
 - Validate workflow: Test parallel execution patterns
+- Progressive testing: Check integrity as context window fills
+- Reference validation: Verify imported content accessibility
 ```
 
 ## Complete System Templates
@@ -321,6 +368,109 @@ bash "{script_path}" \
 - Question immediate execution commands
 - Ask for clarification unless command is completely unrecognizable
 - Create new tools when using existing command system
+```
+
+### Multi-File Output System
+```markdown
+# Multi-File Output System
+
+## Overview
+This system enables Claude to deliver multiple files in a single JSON payload processed by a bash script.
+
+## How to Use
+When user needs multiple files generated:
+1. Understand the user's request for multiple files
+2. Format response as valid JSON object following schema below
+3. Inform user to save output and process with write_files.sh script
+
+## JSON Schema
+```json
+{
+  "files": [
+    {
+      "file_name": "path/to/file.extension",
+      "file_type": "text",
+      "file_content": "The content of the file"
+    }
+  ]
+}
+```
+
+## Important Rules
+1. ALWAYS validate JSON before providing
+2. ALWAYS ensure file paths are properly escaped
+3. For binary files, use base64 encoding and "binary" file_type
+4. NEVER include explanatory text outside JSON structure
+5. When asked for multiple files, ALWAYS use this format
+
+## Processing Instructions
+Users save JSON to file and run: `./write_files.sh files.json`
+```
+
+### Import-Based Modular System
+```markdown
+# {PROJECT_NAME} Modular Configuration
+
+## Core Configuration
+@core-rules.md
+@project-architecture.md
+
+## Domain-Specific Extensions
+@frontend-patterns.md
+@backend-patterns.md
+@testing-guidelines.md
+
+## Personal Preferences
+@~/.claude/personal-preferences.md
+@~/.claude/project-specific-prefs.md
+
+## Important Rules
+- ALL imported instructions MUST BE FOLLOWED
+- Import hierarchy: Core → Domain → Personal
+- Use /memory to view all loaded configurations
+- Imports recursively load up to 5 levels deep
+
+## Workflow
+- Modular design prevents instruction bleeding
+- Clear separation of concerns
+- Team-shared vs personal configurations
+- Easy maintenance and updates
+```
+
+### Research System Template
+```markdown
+# {PROJECT_NAME} Research System
+
+## Important
+- ALL instructions within this document MUST BE FOLLOWED
+- ASK FOR CLARIFICATION if uncertain about research scope
+- DO NOT WASTE TOKENS, be succinct and focused
+
+## Research Protocol
+- SYSTEMATIC APPROACH: Use structured research methodology
+- PARALLEL INFORMATION GATHERING: Leverage multiple sources simultaneously
+- VALIDATION REQUIRED: Cross-reference findings across sources
+
+### Research Workflow:
+1. **Scope Definition**: Clarify research objectives and boundaries
+2. **Source Identification**: Identify relevant documentation, code, references
+3. **Parallel Analysis**: Simultaneously examine multiple information sources
+4. **Pattern Extraction**: Identify common themes and important insights
+5. **Synthesis**: Combine findings into actionable recommendations
+6. **Validation**: Verify conclusions against project requirements
+
+### Information Sources:
+- Official documentation
+- Existing codebase patterns
+- Community best practices
+- Performance benchmarks
+- Security considerations
+
+### Output Format:
+- Executive summary with key findings
+- Detailed analysis with supporting evidence
+- Actionable recommendations with implementation steps
+- Risk assessment and mitigation strategies
 ```
 
 ---
