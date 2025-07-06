@@ -1,3 +1,13 @@
+---
+**⚠️ EXPERIMENTAL PROJECT DISCLAIMER**
+
+This project is experimental and in active development. Features, documentation, and APIs may change rapidly without notice. While the concepts and patterns have been tested, this meta-system approach to CLAUDE.md creation is still evolving.
+
+**Use at your own risk.** This tool is intended for research, education, and experimentation. Test thoroughly in your environment before relying on generated configurations. No warranties or guarantees are provided.
+
+**Prerequisites:** Basic understanding of CLAUDE.md concepts and Claude Code usage is recommended before using advanced features.
+---
+
 # CLAUDE.md Builder - Advanced CLAUDE.md Meta-System
 
 **CLAUDE.md Builder** is a specialized meta-system for creating, optimizing, and mastering CLAUDE.md configurations. It's not just documentation - it's an active Claude configuration that becomes your expert assistant for CLAUDE.md optimization.
