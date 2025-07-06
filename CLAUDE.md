@@ -60,6 +60,8 @@
 - "provide complete examples" → `Display @claude-md-complete-examples.md content`
 - "integrate import capabilities" → `Add import system patterns to template generation`
 - "apply memory hierarchy patterns" → `Integrate memory management optimization techniques`
+- "add hooks integration" → `Add hooks system patterns to template generation`
+- "show hooks documentation" → `Display @claude-md-hooks-integration.md content`
 
 ## Context Optimization Rules
 
@@ -95,6 +97,12 @@
 - **PERSISTENCE OPTIMIZATION**: Design for context maintained throughout sessions
 - **OVERRIDE PREVENTION**: Structure templates to resist user prompt overrides
 
+### Hooks System Integration:
+- **REFERENCE**: Use @claude-md-hooks-integration.md for comprehensive hook configuration and security patterns
+- **AUTOMATION PATTERNS**: Extract hook usage patterns for automated workflow enforcement
+- **TEMPLATE INTEGRATION**: Add hooks capabilities to generated templates when beneficial
+- **SECURITY FOCUS**: Implement hooks patterns with proper validation and safety measures
+
 ## Quality Assurance & Validation
 
 ### Sanity Check Protocol:
@@ -108,6 +116,7 @@
 6. **Memory Access**: Verify CLAUDE.md loading and reference file integration
 7. **Import System**: Test @file reference functionality when applicable
 8. **Context Separation**: Validate memory hierarchy and isolation patterns
+9. **Hooks Integration**: Test automated workflow enforcement and security patterns
 ```
 
 ### Advanced Sanity Check Patterns:

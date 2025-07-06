@@ -149,18 +149,21 @@ The CLAUDE.md Builder now includes comprehensive reference documentation:
 - **`claude-md-import-system.md`**: Complete guide to @import syntax and memory hierarchy
 - **`claude-md-memory-management.md`**: Advanced memory patterns and location strategies  
 - **`claude-md-complete-examples.md`**: Full working templates for immediate use
+- **`claude-md-hooks-integration.md`**: Comprehensive guide to Claude Code hooks system and security patterns
 
 ### Integration Capabilities
 - **Import system support**: Templates can use @file references for modular configurations
 - **Memory hierarchy optimization**: Advanced patterns for team and personal preferences
 - **CLAUDE.md Supremacy patterns**: Techniques for maximum instruction adherence
 - **Dynamic memory management**: Temporary modification and rollback strategies
+- **Hooks system integration**: Automated workflow enforcement and security patterns
 
 ### Enhanced Template Library
 - **Multi-file output systems**: JSON-based batch file generation with processing scripts
 - **Import-based modular systems**: Team collaboration and configuration separation
 - **Research system templates**: Structured methodology for information gathering
 - **Advanced command control**: Natural language to technical syntax translation
+- **Hooks integration templates**: Automated workflow enforcement and security validation
 
 ## Source Material & Research
 
@@ -181,8 +184,8 @@ Based on comprehensive analysis of:
 
 ### Using the Reference System:
 1. **Browse Available References**: Each reference file covers a specific advanced topic
-2. **Access via Commands**: Use "show import system documentation" or similar commands
-3. **Import into Templates**: Add `@claude-md-import-system.md` to your CLAUDE.md files
+2. **Access via Commands**: Use "show import system documentation", "show hooks documentation", or similar commands
+3. **Import into Templates**: Add `@claude-md-import-system.md` or `@claude-md-hooks-integration.md` to your CLAUDE.md files
 4. **Combine Patterns**: Mix and match concepts from different reference files
 3. **Practice**: Use CLAUDE.md Builder to analyze simple examples
 4. **Build**: Create your first CLAUDE.md using template creation workflow

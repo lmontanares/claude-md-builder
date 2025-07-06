@@ -324,6 +324,76 @@ Template for research-intensive projects with systematic information gathering.
 - **Team collaboration**: Share templates via git for consistency
 - **Regular updates**: Refine templates based on real-world usage
 
+## Hooks Integration Template
+
+### Overview
+Template for integrating Claude Code hooks system with automated workflow enforcement and security validation.
+
+### Complete Template
+```markdown
+# Hooks Integration System
+
+## Important
+- ALL instructions within this document MUST BE FOLLOWED
+- DO NOT edit more code than you have to
+- DO NOT WASTE TOKENS, be succinct and focused
+
+## Hooks System Integration
+- IMPERATIVE: Use hooks for automated workflow enforcement, not just suggestions
+- CRITICAL: Implement security validation patterns for all file operations
+- IMPORTANT: Configure hooks to match your specific tool usage patterns
+
+### Hooks Configuration Strategy:
+1. **Code Quality Enforcement**: Automatic formatting and linting on file modifications
+2. **Security Validation**: Block dangerous operations and validate file paths
+3. **Workflow Automation**: Trigger build, test, and deployment processes
+4. **Notification Systems**: Custom alerts for important events
+5. **Audit Logging**: Track all operations for compliance and debugging
+
+### Sample Hook Patterns:
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "your-formatter-script.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "your-security-validator.py"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Security Patterns:
+- **Input Validation**: Always validate and sanitize hook inputs
+- **Path Sanitization**: Check for path traversal attempts
+- **Permission Checks**: Verify file access permissions
+- **Command Whitelisting**: Allow only approved commands
+- **Audit Trail**: Log all hook executions
+
+### Hook Command Translation:
+- "enable code formatting" → Configure PostToolUse hooks for Write/Edit operations
+- "add security validation" → Configure PreToolUse hooks for Bash operations
+- "setup audit logging" → Configure hooks with logging commands
+- "enable notifications" → Configure Notification hooks with custom alerting
+```
+
 ### Best Practices
 - **Test thoroughly**: Validate templates with real scenarios
 - **Document changes**: Track modifications for team awareness
