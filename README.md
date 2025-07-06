@@ -6,7 +6,9 @@ This project is experimental and in development. Features, documentation, and AP
 
 **Use at your own risk.** This tool is intended for research, education, and experimentation. Test thoroughly in your environment before relying on generated configurations. No warranties or guarantees are provided.
 
-**Prerequisites:** Basic understanding of CLAUDE.md concepts and Claude Code usage is recommended before using advanced features.
+**Prerequisites:** 
+- Basic understanding of CLAUDE.md concepts and Claude Code usage is recommended before using advanced features
+- **IMPORTANT**: Delete this README.md file and GOOD_PRACTICES.md after reading - they're not needed for functionality and waste context tokens
 
 ---
 
@@ -24,7 +26,7 @@ This project is experimental and in development. Features, documentation, and AP
 
 - **`CLAUDE.md`** - The builder configuration providing specialized CLAUDE.md creation capabilities
 - **`claude-md-instruction-patterns.md`** - Ready-to-use templates and patterns for immediate implementation
-- **`claude-md-good-practices.md`** - Educational guide covering principles and philosophy behind effective CLAUDE.md design
+- **`GOOD_PRACTICES.md`** - Educational guide covering principles and philosophy behind effective CLAUDE.md design
 
 ## How to Use CLAUDE.md Builder
 
@@ -49,7 +51,7 @@ This project is experimental and in development. Features, documentation, and AP
 **Goal**: Understand and master CLAUDE.md creation principles
 
 **Workflow**:
-1. Read `claude-md-good-practices.md` for foundational concepts
+1. Read `GOOD_PRACTICES.md` for foundational concepts
 2. Study `claude-md-instruction-patterns.md` for practical templates
 3. Use CLAUDE.md Builder to analyze real CLAUDE.md examples
 4. Practice template creation with guided workflows
@@ -178,7 +180,7 @@ Based on comprehensive analysis of:
 ## Getting Started Right Now
 
 ### For Beginners:
-1. **Start Reading**: `claude-md-good-practices.md` (understand the why)
+1. **Start Reading**: `GOOD_PRACTICES.md` (understand the why)
 2. **See Examples**: `claude-md-instruction-patterns.md` (copy-pasteable templates)
 3. **Explore References**: Browse modular reference files for specific topics
 
