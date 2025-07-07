@@ -7,7 +7,7 @@ CLAUDE.md files can import additional files using `@path/to/import` syntax, enab
 
 ### Basic Usage
 ```markdown
-See @README for project overview and @package.json for available npm commands for this project.
+@README for project overview and @package.json for available npm commands for this project.
 
 # Additional Instructions
 - git workflow @docs/git-instructions.md

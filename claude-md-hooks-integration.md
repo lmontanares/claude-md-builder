@@ -112,7 +112,7 @@ Comprehensive guide to integrating Claude Code hooks system with CLAUDE.md confi
 - IMPORTANT: All functions must have JSDoc comments
 
 ## Hooks Configuration
-See @claude-md-hooks-integration.md for comprehensive hook patterns and automated enforcement of these rules.
+@claude-md-hooks-integration.md for comprehensive hook patterns and automated enforcement of these rules.
 
 ## Security Rules
 - IMPERATIVE: Never commit secrets or API keys

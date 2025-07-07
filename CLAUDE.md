@@ -33,35 +33,85 @@
 5. **Validation Integration**: Include sanity check mechanisms and effectiveness testing
 6. **Documentation Generation**: Create usage guidelines with copy-pasteable examples
 
-## Command Translation System
+## Slash Command System
 
-### Pattern Analysis Commands:
-- "analyze CLAUDE.md patterns" → `5-Parallel-Analysis workflow execution`
-- "extract template from [example]" → `Template Creation workflow with domain focus`
-- "optimize context usage" → `Token efficiency analysis and reduction strategies`
-- "generate pattern library" → `Comprehensive component extraction and categorization`
-- "validate CLAUDE.md effectiveness" → `Sanity check protocol and adherence testing`
+### Core Integration Rules:
+- **IMPERATIVE**: Slash commands execute immediately with highest priority
+- **CRITICAL**: Natural language automatically translates to slash commands when no direct match
+- **IMPORTANT**: Use project commands for team workflows, personal commands for individual preferences
 
-### Template Generation Commands:
-- "create template for [domain]" → `Domain-specific template generation workflow`
-- "design command system for [use case]" → `Command translation pattern creation`
-- "build workflow for [task type]" → `Parallel task sequence design and optimization`
-- "generate complete CLAUDE.md for [project]" → `Full template synthesis with customization`
+### Project Commands (Team-Shared)
+Location: `.claude/commands/`
 
-### Optimization Commands:
-- "reduce token usage" → `Context stripping and efficiency enhancement analysis`
-- "improve instruction adherence" → `Priority reorganization and rule strengthening`
-- "enhance parallel execution" → `Task tool integration and workflow optimization`
-- "validate performance" → `Effectiveness testing and metric evaluation`
+#### Pattern Analysis Commands:
+- `/project:analyze-patterns` → `5-Parallel-Analysis workflow execution`
+- `/project:extract-template $ARGUMENTS` → `Template Creation workflow with domain focus`
+- `/project:optimize-context` → `Token efficiency analysis and reduction strategies`
+- `/project:generate-library` → `Comprehensive component extraction and categorization`
+- `/project:validate-claude-md` → `Sanity check protocol and adherence testing`
+
+#### Template Generation Commands:
+- `/project:create-template $ARGUMENTS` → `Domain-specific template generation workflow`
+- `/project:design-command-system $ARGUMENTS` → `Slash command pattern creation`
+- `/project:build-workflow $ARGUMENTS` → `Parallel task sequence design and optimization`
+- `/project:generate-complete-claude-md $ARGUMENTS` → `Full template synthesis with customization`
+
+#### Workflow Commands (Namespaced):
+- `/project:template:create $ARGUMENTS` → `Template creation workflow`
+- `/project:template:validate` → `Template validation protocol`
+- `/project:workflow:parallel` → `Parallel task execution`
+- `/project:workflow:optimize` → `Context optimization workflow`
+
+### Personal Commands (Individual)
+Location: `~/.claude/commands/`
+
+#### Quick Actions:
+- `/user:quick-template $ARGUMENTS` → `Personal template shortcuts`
+- `/user:context-strip` → `Advanced context optimization`
+- `/user:pattern-library` → `Personal pattern management`
+- `/user:validate-performance` → `Effectiveness testing and metric evaluation`
+
+### Command Translation Rules:
+- **PRIMARY PATH**: Slash commands execute immediately without interpretation
+- **SECONDARY PATH**: Natural language triggers automatic slash command translation
+- **CONTEXT OPTIMIZATION**: Commands include built-in context stripping via `!` and `@`
+- **PARALLEL BY DEFAULT**: Commands execute multiple tasks simultaneously
+
+### Natural Language → Slash Command Translation:
+
+#### Pattern Analysis:
+- "analyze patterns" → `/project:analyze-patterns`
+- "extract template from [example]" → `/project:extract-template [example]`
+- "optimize context" → `/project:optimize-context`
+- "generate pattern library" → `/project:generate-library`
+- "validate claude md" → `/project:validate-claude-md`
+
+#### Template Generation:
+- "create template for [domain]" → `/project:create-template [domain]`
+- "design command system for [use case]" → `/project:design-command-system [use case]`
+- "build workflow for [type]" → `/project:build-workflow [type]`
+- "generate complete claude md for [project]" → `/project:generate-complete-claude-md [project]`
+
+#### Development Workflows:
+- "create feature [name]" → `/project:feature:create [name]`
+- "make component [name]" → `/project:component:create [name]`
+- "build tool [name]" → `/project:tool:create [name]`
+- "test feature [name]" → `/project:feature:test [name]`
+
+#### Integration Commands:
+- "integrate imports" → `/project:integrate-imports $ARGUMENTS`
+- "apply memory patterns" → `/project:apply-memory-patterns $ARGUMENTS`
+- "add hooks" → `/project:add-hooks $ARGUMENTS`
+
+#### Personal Commands:
+- "quick template" → `/user:quick-template $ARGUMENTS`
+- "strip context" → `/user:context-strip`
+- "validate performance" → `/user:validate-performance`
 
 ### Reference Integration Commands:
-- "show import system documentation" → `Display @claude-md-import-system.md content`
-- "explain memory management" → `Display @claude-md-memory-management.md content`
-- "provide complete examples" → `Display @claude-md-complete-examples.md content`
-- "integrate import capabilities" → `Add import system patterns to template generation`
-- "apply memory hierarchy patterns" → `Integrate memory management optimization techniques`
-- "add hooks integration" → `Add hooks system patterns to template generation`
-- "show hooks documentation" → `Display @claude-md-hooks-integration.md content`
+- `/project:integrate-imports $ARGUMENTS` → `Add import system patterns to template generation`
+- `/project:apply-memory-patterns $ARGUMENTS` → `Integrate memory management optimization techniques`
+- `/project:add-hooks $ARGUMENTS` → `Add hooks system patterns to template generation`
 
 ## Context Optimization Rules
 
@@ -80,13 +130,13 @@
 ## Advanced CLAUDE.md Patterns Integration
 
 ### Import System Integration:
-- **REFERENCE**: Use @claude-md-import-system.md for comprehensive import syntax documentation
+- **REFERENCE**: @claude-md-import-system.md for comprehensive import syntax documentation
 - **PATTERN EXTRACTION**: Analyze import usage patterns in existing configurations
 - **TEMPLATE ENHANCEMENT**: Add import capabilities to generated templates when beneficial
 - **MODULAR DESIGN**: Support both self-contained and import-based template architectures
 
 ### Memory Management Optimization:
-- **REFERENCE**: Use @claude-md-memory-management.md for advanced memory hierarchy techniques
+- **REFERENCE**: @claude-md-memory-management.md for advanced memory hierarchy techniques
 - **DISCOVERY ANALYSIS**: Understand recursive memory loading behavior for template design
 - **CONTEXT SEPARATION**: Implement memory hierarchy patterns in generated templates
 - **DYNAMIC MEMORY**: Extract patterns for temporary CLAUDE.md modification workflows
@@ -98,10 +148,16 @@
 - **OVERRIDE PREVENTION**: Structure templates to resist user prompt overrides
 
 ### Hooks System Integration:
-- **REFERENCE**: Use @claude-md-hooks-integration.md for comprehensive hook configuration and security patterns
+- **REFERENCE**: @claude-md-hooks-integration.md for comprehensive hook configuration and security patterns
 - **AUTOMATION PATTERNS**: Extract hook usage patterns for automated workflow enforcement
 - **TEMPLATE INTEGRATION**: Add hooks capabilities to generated templates when beneficial
 - **SECURITY FOCUS**: Implement hooks patterns with proper validation and safety measures
+
+### Slash Command Integration:
+- **REFERENCE**: @claude-md-slash-commands.md for comprehensive slash command implementation patterns
+- **COMMAND DESIGN**: Create efficient project and personal command structures
+- **CONTEXT AUTOMATION**: Use `!` (bash) and `@` (file references) for dynamic context
+- **PARALLEL EXECUTION**: Design commands for multi-task workflow automation
 
 ## Quality Assurance & Validation
 
@@ -122,16 +178,18 @@
 ### Advanced Sanity Check Patterns:
 - **Multiple Checkpoints**: Distribute validation points across CLAUDE.md sections
 - **Progressive Testing**: Test integrity as context window fills up
-- **Reference Validation**: Verify imported content accessibility and integration
+- **Reference Validation**: Verify @file accessibility and integration
 - **Dynamic Memory Testing**: Validate temporary modification and rollback capabilities
 - **Supremacy Validation**: Test CLAUDE.md instruction priority over user prompts
+- **Slash Command Testing**: Validate `/project:command` and `/user:command` execution
 
 ### Success Indicators:
 - IMPERATIVE instructions followed without question or clarification
-- Natural language commands converted to proper technical syntax automatically
+- Slash commands execute immediately without interpretation overhead
 - Context optimization reduces token usage while maintaining functionality
 - Parallel workflows execute efficiently with minimal coordination overhead
 - Generated templates demonstrate clear value and immediate usability
+- Direct file references (`@file`) work efficiently without "display" commands
 
 ## Template Library Management
 

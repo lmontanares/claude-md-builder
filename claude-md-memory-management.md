@@ -86,9 +86,9 @@
 **Example - Lightweight Project CLAUDE.md**:
 ```markdown
 # Project Configuration
-See @project-details.md for specific architecture
-See @team-conventions.md for coding standards
-See @~/.claude/my-preferences.md for personal settings
+@project-details.md for specific architecture
+@team-conventions.md for coding standards
+@~/.claude/my-preferences.md for personal settings
 ```
 
 ## Advanced Memory Patterns
