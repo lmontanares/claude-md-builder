@@ -27,11 +27,247 @@
 
 ### Template Creation Workflow:
 1. **Domain Analysis**: Understand specific use case requirements and constraints
-2. **Pattern Library Selection**: Choose appropriate structural frameworks from proven patterns
+2. **Pattern Library Selection**: Choose appropriate structural frameworks from patterns below
 3. **Rule Prioritization**: Organize by IMPERATIVE > CRITICAL > IMPORTANT hierarchy
 4. **Command System Design**: Create natural language to technical syntax mappings
 5. **Validation Integration**: Include sanity check mechanisms and effectiveness testing
 6. **Documentation Generation**: Create usage guidelines with copy-pasteable examples
+
+## Core Patterns Library
+
+### Essential Patterns
+
+#### Sanity Check Pattern
+```markdown
+# My name is {YOUR_NAME}
+```
+
+#### Basic CLAUDE.md Template
+```markdown
+# My name is {YOUR_NAME}
+
+## Important Instructions
+- ALL instructions within this document MUST BE FOLLOWED
+- ASK FOR CLARIFICATION if uncertain of anything
+- DO NOT edit more code than necessary
+- DO NOT WASTE TOKENS, be succinct and concise
+
+## Project-Specific Rules
+[Your specific domain rules here]
+
+## Workflow Guidelines
+[Your workflow patterns here]
+
+## File Access Permissions
+[Your file access rules here]
+```
+
+### Priority Markers & Execution Patterns
+
+#### Priority Indicator Formats
+```markdown
+- **IMPERATIVE**: Non-negotiable, must be followed
+- **CRITICAL**: High priority, essential rules
+- **IMPORTANT**: Significant guidelines
+- Regular text: Standard instructions
+```
+
+#### Immediate Execution Patterns
+```markdown
+- IMPERATIVE: ANY time the user mentions "X", IMMEDIATELY run Y without question
+- IMMEDIATE EXECUTION: Launch Z immediately upon request
+- NO CLARIFICATION: Skip asking what type unless absolutely critical
+```
+
+#### Prohibition Lists
+```markdown
+### DO NOT:
+- Edit more code than necessary
+- Waste tokens on verbose responses
+- Question immediate execution commands
+- Create tools when using existing commands
+- Read files outside specified permissions
+```
+
+### Command Translation Systems
+
+#### Basic Command Translation Template
+```markdown
+### Command Translation:
+- "switch to X tool" → `bash "/path/script.sh" --switch-tool X`
+- "take a screenshot" → `bash "/path/script.sh" --screenshot`
+- "preview current tool" → `bash "/path/script.sh" --tool-preview true`
+```
+
+#### Complex Command System Template
+```markdown
+## {SYSTEM_NAME} Control System
+- IMPERATIVE: ANY time user mentions "{trigger_phrase}", IMMEDIATELY run {command} without question
+- Execute using: `{exact_command_syntax}`
+
+### Command Translation:
+- "{natural_language}" → `{technical_command}`
+- "{another_example}" → `{technical_syntax}`
+
+### Execution Rules:
+1. Convert user requests to proper command format
+2. Execute immediately without clarification
+3. Handle all variations of the trigger phrase
+```
+
+### Workflow Execution Templates
+
+#### Parallel Task Template
+```markdown
+## {TASK_TYPE} Workflow
+### Priority Rules:
+- IMMEDIATE EXECUTION: Launch ultra-fast Tasks immediately upon request
+- NO CLARIFICATION: Skip asking what type unless absolutely critical
+- ULTRA-FAST BY DEFAULT: Always use {N}-parallel-Task method
+
+### {N}-Parallel Task Workflow:
+1. **{Task1}**: {Description}
+2. **{Task2}**: {Description}
+3. **{Task3}**: {Description}
+4. **{Task4}**: {Description}
+5. **{Task5}**: {Description}
+
+### Execution Guidelines:
+- Each task handles ONLY specified files
+- Strip comments when reading code for analysis
+- Use MultiEdit for multiple edits to same file
+```
+
+#### Feature Development Workflow
+```markdown
+### 7-Parallel Feature Development:
+1. **Component**: Create main component file with core functionality
+2. **Styles**: Create component styles and CSS files
+3. **Tests**: Create comprehensive test files and test cases
+4. **Types**: Create TypeScript definitions and interfaces
+5. **Hooks**: Create custom hooks and utility functions
+6. **Integration**: Update routing, imports, and exports
+7. **Documentation**: Update README, docs, and configuration files
+```
+
+## Import System
+
+### Overview
+CLAUDE.md files can import additional files using `@path/to/import` syntax, enabling modular configuration and team collaboration.
+
+### Import Syntax
+
+#### Basic Usage
+```markdown
+@README for project overview and @package.json for available npm commands for this project.
+
+# Additional Instructions
+- git workflow @docs/git-instructions.md
+```
+
+#### Individual Preferences
+```markdown
+# Individual Preferences
+- @~/.claude/my-project-instructions.md
+```
+
+### Import Rules
+
+#### Path Types
+- **Relative paths**: `@docs/git-instructions.md`
+- **Absolute paths**: `@/home/user/project/config.md`
+- **Home directory**: `@~/.claude/my-project-instructions.md`
+
+#### Processing Rules
+- Imported files can recursively import additional files (max-depth of 5 hops)
+- Imports are not evaluated inside markdown code spans and code blocks
+- @ file references add CLAUDE.md in the file's directory and parent directories to context
+
+### Memory Type Hierarchy
+
+| Memory Type | Location | Purpose | Use Case Examples |
+|-------------|----------|---------|------------------|
+| **Project memory** | `./CLAUDE.md` | Team-shared instructions | Project architecture, coding standards |
+| **User memory** | `~/.claude/CLAUDE.md` | Personal preferences for all projects | Code styling preferences, tooling shortcuts |
+| **Project memory (local)** | `./CLAUDE.local.md` | Personal project-specific preferences | *(Deprecated - use imports instead)* |
+
+### Advanced Import Patterns
+
+#### Team Collaboration
+```markdown
+# Team Configuration
+@team-standards.md
+
+# Individual Overrides
+@~/.claude/personal-preferences.md
+```
+
+#### Modular System Design
+```markdown
+# Core Rules
+@core-rules.md
+
+# Domain-Specific Extensions
+@frontend-patterns.md
+@backend-patterns.md
+@testing-guidelines.md
+```
+
+### Management Commands
+
+#### View Loaded Memories
+```
+/memory
+```
+Shows all currently loaded memory files and their sources.
+
+#### Quick Memory Addition
+```
+# Always use descriptive variable names
+```
+Starting input with `#` prompts for memory file selection.
+
+## Memory Management
+
+### Memory Location Strategy
+
+#### Where to Place CLAUDE.md Files
+
+**The root of your repo** (most common)
+- Name it `CLAUDE.md` and check into git for team sharing (recommended)
+- Name it `CLAUDE.local.md` and `.gitignore` it for personal use *(deprecated - use imports instead)*
+
+**Parent directories** (monorepos)
+- Run `claude` from `root/foo`, have CLAUDE.md in both `root/CLAUDE.md` and `root/foo/CLAUDE.md`
+- Both are automatically pulled into context
+
+**Home folder** (`~/.claude/CLAUDE.md`)
+- Applies to all your claude sessions across all projects
+- Perfect for personal preferences and global configurations
+
+### Memory Discovery Process
+
+#### Recursive Loading Behavior
+1. **Start**: Current working directory
+2. **Recurse Up**: To (but not including) root directory `/`
+3. **Auto-Load**: Any CLAUDE.md or CLAUDE.local.md files found
+4. **Subtree Discovery**: CLAUDE.md files in child directories loaded on demand
+
+### Context Separation Strategy
+**Problem**: Ensure strict separation of context between projects
+**Solution**: Keep project directory `CLAUDE.md` lightweight and non-specific
+
+### Dynamic Memory Pattern
+**Concept**: Temporarily modify CLAUDE.md for specific contexts, then revert
+
+**Backup Strategies**:
+- **Git versioning**: Use `git stash` or commit before changes
+- **File duplication**: Copy to `CLAUDE.md.backup` before modifications
+
+**Refresh Techniques**:
+- **Quick Memory**: Use `#` commands to temporarily change persisted information
+- **Memory refresh commands**: Explicitly ask Claude to re-read modified CLAUDE.md
+- **Session restart**: Start new Claude Code session to pick up changes
 
 ## Slash Command System
 
@@ -44,74 +280,155 @@
 Location: `.claude/commands/`
 
 #### Pattern Analysis Commands:
-- `/project:analyze-patterns` → `5-Parallel-Analysis workflow execution`
-- `/project:extract-template $ARGUMENTS` → `Template Creation workflow with domain focus`
-- `/project:optimize-context` → `Token efficiency analysis and reduction strategies`
-- `/project:generate-library` → `Comprehensive component extraction and categorization`
-- `/project:validate-claude-md` → `Sanity check protocol and adherence testing`
+- `/project:analyze-patterns` → 5-Parallel-Analysis workflow execution
+- `/project:extract-template $ARGUMENTS` → Template creation with domain focus
+- `/project:optimize-context` → Token efficiency analysis
+- `/project:validate-claude-md` → Sanity check protocol execution
 
 #### Template Generation Commands:
-- `/project:create-template $ARGUMENTS` → `Domain-specific template generation workflow`
-- `/project:design-command-system $ARGUMENTS` → `Slash command pattern creation`
-- `/project:build-workflow $ARGUMENTS` → `Parallel task sequence design and optimization`
-- `/project:generate-complete-claude-md $ARGUMENTS` → `Full template synthesis with customization`
+- `/project:create-template $ARGUMENTS` → Domain-specific template generation
+- `/project:design-command-system $ARGUMENTS` → Slash command pattern creation
+- `/project:build-workflow $ARGUMENTS` → Parallel task sequence design
 
-#### Workflow Commands (Namespaced):
-- `/project:template:create $ARGUMENTS` → `Template creation workflow`
-- `/project:template:validate` → `Template validation protocol`
-- `/project:workflow:parallel` → `Parallel task execution`
-- `/project:workflow:optimize` → `Context optimization workflow`
+#### Development Commands:
+- `/project:feature:create $ARGUMENTS` → Complete feature with parallel execution
+- `/project:component:create $ARGUMENTS` → Component with associated files
+- `/project:tool:create $ARGUMENTS` → Tool creation with parallel tasks
 
 ### Personal Commands (Individual)
 Location: `~/.claude/commands/`
 
 #### Quick Actions:
-- `/user:quick-template $ARGUMENTS` → `Personal template shortcuts`
-- `/user:context-strip` → `Advanced context optimization`
-- `/user:pattern-library` → `Personal pattern management`
-- `/user:validate-performance` → `Effectiveness testing and metric evaluation`
+- `/user:quick-template $ARGUMENTS` → Personal template shortcuts
+- `/user:context-strip` → Advanced context optimization
+- `/user:pattern-library` → Personal pattern management
+- `/user:validate-performance` → Effectiveness testing
 
-### Command Translation Rules:
-- **PRIMARY PATH**: Slash commands execute immediately without interpretation
-- **SECONDARY PATH**: Natural language triggers automatic slash command translation
-- **CONTEXT OPTIMIZATION**: Commands include built-in context stripping via `!` and `@`
-- **PARALLEL BY DEFAULT**: Commands execute multiple tasks simultaneously
+### Command Implementation Patterns
 
-### Natural Language → Slash Command Translation:
+#### Basic Command Structure
+```markdown
+---
+allowed-tools: Write, Edit, MultiEdit, Task, Bash
+description: Brief description of command purpose
+---
 
-#### Pattern Analysis:
+# Command Title: $ARGUMENTS
+
+## Context
+- Project info: !`relevant bash command`
+- File references: @path/to/file.ext
+- Dynamic context: !`bash command with $ARGUMENTS`
+
+## Execution
+Command-specific instructions and workflow.
+Use $ARGUMENTS for dynamic content.
+```
+
+#### Command Translation Rules:
+**Primary Path (Slash Commands):**
+- `/project:analyze-patterns` → Immediate execution
+- `/project:create-template $ARGUMENTS` → Direct template creation
+- `/project:feature:create $ARGUMENTS` → Instant feature development
+
+**Secondary Path (Natural Language → Slash Commands):**
 - "analyze patterns" → `/project:analyze-patterns`
-- "extract template from [example]" → `/project:extract-template [example]`
-- "optimize context" → `/project:optimize-context`
-- "generate pattern library" → `/project:generate-library`
-- "validate claude md" → `/project:validate-claude-md`
+- "create template for e-commerce" → `/project:create-template e-commerce`
+- "build user dashboard" → `/project:feature:create dashboard`
 
-#### Template Generation:
-- "create template for [domain]" → `/project:create-template [domain]`
-- "design command system for [use case]" → `/project:design-command-system [use case]`
-- "build workflow for [type]" → `/project:build-workflow [type]`
-- "generate complete claude md for [project]" → `/project:generate-complete-claude-md [project]`
+## Hooks Integration
 
-#### Development Workflows:
-- "create feature [name]" → `/project:feature:create [name]`
-- "make component [name]" → `/project:component:create [name]`
-- "build tool [name]" → `/project:tool:create [name]`
-- "test feature [name]" → `/project:feature:test [name]`
+### Core Integration Principles
+- **CLAUDE.md**: Provides suggestions and guidance that Claude follows
+- **Hooks**: Provides deterministic automation that always executes
+- **Integration**: Use hooks to enforce CLAUDE.md rules automatically
 
-#### Integration Commands:
-- "integrate imports" → `/project:integrate-imports $ARGUMENTS`
-- "apply memory patterns" → `/project:apply-memory-patterns $ARGUMENTS`
-- "add hooks" → `/project:add-hooks $ARGUMENTS`
+### Hook Configuration Patterns
 
-#### Personal Commands:
-- "quick template" → `/user:quick-template $ARGUMENTS`
-- "strip context" → `/user:context-strip`
-- "validate performance" → `/user:validate-performance`
+#### Basic Hook Structure
+```json
+{
+  "hooks": {
+    "EventName": [
+      {
+        "matcher": "ToolPattern",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "your-script.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
-### Reference Integration Commands:
-- `/project:integrate-imports $ARGUMENTS` → `Add import system patterns to template generation`
-- `/project:apply-memory-patterns $ARGUMENTS` → `Integrate memory management optimization techniques`
-- `/project:add-hooks $ARGUMENTS` → `Add hooks system patterns to template generation`
+#### Code Quality Enforcement
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "prettier --write \"$(echo '$tool_input' | jq -r '.file_path')\" || true"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+#### Security Validation
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.claude/security-validator.py"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Security Patterns
+
+#### Input Validation Hook
+```python
+#!/usr/bin/env python3
+import json
+import sys
+import re
+
+def validate_bash_command(command):
+    """Validate bash commands for security issues"""
+    dangerous_patterns = [
+        r'rm\s+-rf\s+/',  # Dangerous rm commands
+        r'chmod\s+777',   # Overly permissive permissions
+        r'curl.*\|\s*sh', # Piping downloads to shell
+        r'wget.*\|\s*sh', # Piping downloads to shell
+    ]
+    
+    for pattern in dangerous_patterns:
+        if re.search(pattern, command):
+            return False, f"Dangerous command pattern detected: {pattern}"
+    
+    return True, "Command validated"
+
+# Implementation details...
+```
 
 ## Context Optimization Rules
 
@@ -129,35 +446,17 @@ Location: `~/.claude/commands/`
 
 ## Advanced CLAUDE.md Patterns Integration
 
-### Import System Integration:
-- **REFERENCE**: @claude-md-import-system.md for comprehensive import syntax documentation
-- **PATTERN EXTRACTION**: Analyze import usage patterns in existing configurations
-- **TEMPLATE ENHANCEMENT**: Add import capabilities to generated templates when beneficial
-- **MODULAR DESIGN**: Support both self-contained and import-based template architectures
-
-### Memory Management Optimization:
-- **REFERENCE**: @claude-md-memory-management.md for advanced memory hierarchy techniques
-- **DISCOVERY ANALYSIS**: Understand recursive memory loading behavior for template design
-- **CONTEXT SEPARATION**: Implement memory hierarchy patterns in generated templates
-- **DYNAMIC MEMORY**: Extract patterns for temporary CLAUDE.md modification workflows
+### Thinking Mode Integration:
+- **COMPLEX ANALYSIS**: Use thinking mode for multi-step pattern analysis and optimization
+- **TEMPLATE SYNTHESIS**: Apply thinking mode for complex template creation workflows
+- **OPTIMIZATION REASONING**: Use thinking mode to analyze token efficiency and context strategies
+- **PATTERN EVALUATION**: Apply thinking mode for comprehensive pattern effectiveness assessment
 
 ### CLAUDE.md Supremacy Pattern:
 - **ADHERENCE HIERARCHY**: Template designs must prioritize CLAUDE.md instructions over user prompts
 - **BEHAVIORAL MODELING**: Extract supremacy patterns that maximize instruction following
 - **PERSISTENCE OPTIMIZATION**: Design for context maintained throughout sessions
 - **OVERRIDE PREVENTION**: Structure templates to resist user prompt overrides
-
-### Hooks System Integration:
-- **REFERENCE**: @claude-md-hooks-integration.md for comprehensive hook configuration and security patterns
-- **AUTOMATION PATTERNS**: Extract hook usage patterns for automated workflow enforcement
-- **TEMPLATE INTEGRATION**: Add hooks capabilities to generated templates when beneficial
-- **SECURITY FOCUS**: Implement hooks patterns with proper validation and safety measures
-
-### Slash Command Integration:
-- **REFERENCE**: @claude-md-slash-commands.md for comprehensive slash command implementation patterns
-- **COMMAND DESIGN**: Create efficient project and personal command structures
-- **CONTEXT AUTOMATION**: Use `!` (bash) and `@` (file references) for dynamic context
-- **PARALLEL EXECUTION**: Design commands for multi-task workflow automation
 
 ## Quality Assurance & Validation
 
@@ -181,7 +480,6 @@ Location: `~/.claude/commands/`
 - **Reference Validation**: Verify @file accessibility and integration
 - **Dynamic Memory Testing**: Validate temporary modification and rollback capabilities
 - **Supremacy Validation**: Test CLAUDE.md instruction priority over user prompts
-- **Slash Command Testing**: Validate `/project:command` and `/user:command` execution
 
 ### Success Indicators:
 - IMPERATIVE instructions followed without question or clarification
@@ -207,21 +505,6 @@ Location: `~/.claude/commands/`
 - **Modular Design**: Components that can be mixed and matched efficiently
 - **Context Efficient**: Optimized for token usage and performance
 
-## Educational Content Development
-
-### Content Creation Protocol:
-1. **Principle Extraction**: Identify core concepts behind effective patterns
-2. **Example Development**: Create representative use cases and implementations
-3. **Best Practice Documentation**: Catalog proven strategies and anti-patterns
-4. **Tutorial Sequence Design**: Structure learning progression logically
-5. **Validation and Testing**: Ensure educational effectiveness through application
-
-### Knowledge Transfer Optimization:
-- **Practical Focus**: Emphasize implementable patterns over theoretical concepts
-- **Progressive Complexity**: Build from basic templates to advanced optimization
-- **Real-World Examples**: Use actual CLAUDE.md implementations as case studies
-- **Hands-On Application**: Provide immediate practice opportunities with feedback
-
 ## File Access Permissions
 
 ### Permitted Operations:
@@ -236,6 +519,17 @@ Location: `~/.claude/commands/`
 - **DO NOT**: Generate content that contradicts established best practices
 - **DO NOT**: Create templates without proper validation and documentation
 
+## Quick Navigation
+
+### Essential Resources
+- **QUICKREF.md**: Commands and natural language examples for immediate use
+- **README.md**: Project overview and navigation table
+- **examples/**: Complete working CLAUDE.md files for different domains
+
+### Advanced Resources
+- **patterns/**: Specialized template components for specific use cases
+- **claude-md-complete-examples.md**: Complete working examples and system templates
+
 ---
 
-*This CLAUDE.md exemplifies the advanced patterns and optimization techniques it teaches, serving as both functional configuration and educational demonstration of CLAUDE.md mastery.*
+*This comprehensive CLAUDE.md exemplifies the advanced patterns and optimization techniques it teaches, serving as both functional configuration and educational demonstration of CLAUDE.md mastery. All essential patterns, import system, memory management, slash commands, and hooks integration are included inline for self-contained operation.*
